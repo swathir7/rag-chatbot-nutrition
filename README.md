@@ -1,4 +1,4 @@
-# 🥗 Nutrition Bot — Evidence-Based Dietary & Food Safety Assistant (Milestone 2)
+# Nutrition Bot — Evidence-Based Dietary & Food Safety Assistant (Milestone 2)
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-blue?logo=react)](https://react.dev/)
