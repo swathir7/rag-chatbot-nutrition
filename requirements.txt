@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+sentence-transformers
+pydantic
+chromadb
+transformers<4.40.0

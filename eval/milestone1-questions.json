@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "question": "How much protein does a vegetarian adult need per day?",
+    "category": "Nutrient requirements"
+  },
+  {
+    "id": 2,
+    "question": "How should raw chicken be stored?",
+    "category": "Food safety and storage"
+  },
+  {
+    "id": 3,
+    "question": "What is the recommended daily sodium intake for adults?",
+    "category": "Nutrient requirements"
+  },
+  {
+    "id": 4,
+    "question": "How long can cooked rice be safely kept in the fridge?",
+    "category": "Food safety and storage"
+  },
+  {
+    "id": 5,
+    "question": "Does steaming vegetables preserve more nutrients than boiling?",
+    "category": "Cooking methods"
+  },
+  {
+    "id": 6,
+    "question": "What temperature should pork be cooked to?",
+    "category": "Food safety and storage"
+  },
+  {
+    "id": 7,
+    "question": "How much fibre should an adult eat daily?",
+    "category": "Nutrient requirements"
+  },
+  {
+    "id": 8,
+    "question": "Is it safe to refreeze thawed meat?",
+    "category": "Food safety and storage"
+  },
+  {
+    "id": 9,
+    "question": "Are eggs good or bad for cholesterol?",
+    "category": "Questions where nobody has a clear answer"
+  },
+  {
+    "id": 10,
+    "question": "Is intermittent fasting healthy?",
+    "category": "Questions where nobody has a clear answer"
+  }
+]

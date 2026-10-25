@@ -1,0 +1,19 @@
+Retrieval Hit-Rate: 10/14 = 71.4%
+
+Hits:
+Q2: ✅ foodsafety-cold-storage / **Cold Food Storage Chart** (score: 0.84)
+Q3: ✅ who-healthy-diet / Salt, sodium and potassium (score: 0.88)
+Q6: ✅ au-dietary-2013 / General (score: 0.84)
+Q7: ✅ efsa-drv-2017 / **Dietary Reference Values for nutrients** **Summary report** (score: 0.89)
+Q8: ✅ foodsafety-cold-storage / **Cold Food Storage Chart** (score: 0.81)
+Q9: ✅ who-healthy-diet / Fats (score: 0.83)
+Q10: ✅ efsa-drv-2017 / **Dietary Reference Values for nutrients** **Summary report** (score: 0.87)
+Q12: ✅ who-healthy-diet / Sugars (score: 0.82)
+Q13: ✅ efsa-drv-2017 / **Dietary Reference Values for nutrients** **Summary report** (score: 0.81)
+Q15: ✅ foodsafety-cold-storage / **Cold Food Storage Chart** (score: 0.85)
+
+Misses:
+Q1: ❌ Expected usda-dga-2020, got Dietary Reference Values for Nutrients - Summary Report / **Dietary Reference Values for nutrients** **Summary report** (score: 0.85)
+Q4: ❌ Expected uk-eatwell-2016, got Australian Dietary Guidelines / General (score: 0.87)
+Q5: ❌ Expected fda-food-code-2022, got Meat and Poultry Roasting Charts / **Meat and Poultry Roasting Charts** (score: 0.90)
+Q11: ❌ Expected fda-food-code-2022, got People at Risk of Food Poisoning / **Shop Safely** (score: 0.85)

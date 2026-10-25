@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@theme {
+  --color-zinc-750: #2e2e38;
+  --color-zinc-850: #1f1f23;
+  --color-zinc-925: #111115;
+  --color-zinc-950: #09090b;
+
+  --color-excel-50: #f0fdf4;
+  --color-excel-500: #16a34a;
+  --color-excel-600: #107c41;
+  --color-excel-700: #0b5c30;
+  --color-excel-800: #074122;
+
+  --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in: fade-in 0.35s ease-out both;
+  --animate-blob: blob 22s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.2s linear infinite;
+
+  @keyframes shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes blob {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(6vw, -4vh) scale(1.08);
+    }
+    66% {
+      transform: translate(-4vw, 5vh) scale(0.94);
+    }
+  }
+}
+
+body {
+  background-color: #05070a;
+  color: #f3f4f6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Glass surfaces ─────────────────────────────────────────────────────────
+   glass        → top-level panels (header, sidebars, chat column, input).
+   glass-strong → overlays that sit above other glass (drawers, modals).
+   glass-card   → nested cards inside a glass panel. No backdrop blur: stacked
+                  blurs are expensive and add nothing visually once the parent
+                  is already frosted. */
+
+@utility glass {
+  background-color: rgb(255 255 255 / 0.04);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.06),
+    0 10px 40px -12px rgb(0 0 0 / 0.6);
+}
+
+@utility glass-strong {
+  background-color: rgb(12 15 20 / 0.72);
+  backdrop-filter: blur(32px) saturate(170%);
+  -webkit-backdrop-filter: blur(32px) saturate(170%);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.07),
+    0 24px 64px -16px rgb(0 0 0 / 0.75);
+}
+
+@utility glass-card {
+  background-color: rgb(255 255 255 / 0.035);
+  border: 1px solid rgb(255 255 255 / 0.07);
+  box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.04);
+}
+
+/* Horizontal swipe rows on mobile */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Browsers without backdrop-filter get a solid fallback so text stays legible. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background-color: rgb(17 20 26 / 0.92);
+  }
+  .glass-strong {
+    background-color: rgb(12 15 20 / 0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 0.18);
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "question": "How much dietary fibre should adults consume daily?",
+    "expected_doc_id": "usda-dga-2020",
+    "expected_section": "Nutritional Goals",
+    "category": "nutrient_requirements"
+  },
+  {
+    "id": 2,
+    "question": "How long can raw ground beef be stored in the refrigerator?",
+    "expected_doc_id": "foodsafety-cold-storage",
+    "expected_section": "Ground Meat",
+    "category": "food_safety"
+  },
+  {
+    "id": 3,
+    "question": "What is the recommended daily intake of sodium?",
+    "expected_doc_id": "who-healthy-diet",
+    "expected_section": "Salt, sodium and potassium",
+    "category": "nutrient_requirements"
+  },
+  {
+    "id": 4,
+    "question": "What proportion of my diet should be fruits and vegetables?",
+    "expected_doc_id": "uk-eatwell-2016",
+    "expected_section": "Fruit and vegetables",
+    "category": "dietary_patterns"
+  },
+  {
+    "id": 5,
+    "question": "What is the safe cooking temperature for poultry?",
+    "expected_doc_id": "fda-food-code-2022",
+    "expected_section": "Cooking",
+    "category": "food_safety"
+  },
+  {
+    "id": 6,
+    "question": "How many servings of whole grains should I eat per day?",
+    "expected_doc_id": "au-dietary-2013",
+    "expected_section": "Grain (cereal) foods",
+    "category": "dietary_patterns"
+  },
+  {
+    "id": 7,
+    "question": "What are the vitamin C requirements for adults?",
+    "expected_doc_id": "efsa-drv-2017",
+    "expected_section": "Vitamins",
+    "category": "nutrient_requirements"
+  },
+  {
+    "id": 8,
+    "question": "How long can I store leftover cooked chicken in the fridge?",
+    "expected_doc_id": "foodsafety-cold-storage",
+    "expected_section": "Leftovers",
+    "category": "food_safety"
+  },
+  {
+    "id": 9,
+    "question": "Should I eat foods high in saturated fat?",
+    "expected_doc_id": "who-healthy-diet",
+    "expected_section": "Fats",
+    "category": "dietary_patterns"
+  },
+  {
+    "id": 10,
+    "question": "What is the recommended daily calcium intake?",
+    "expected_doc_id": "efsa-drv-2017",
+    "expected_section": "Minerals",
+    "category": "nutrient_requirements"
+  },
+  {
+    "id": 11,
+    "question": "How to prevent cross contamination when storing food?",
+    "expected_doc_id": "fda-food-code-2022",
+    "expected_section": "Protection from Contamination After Receiving",
+    "category": "food_safety"
+  },
+  {
+    "id": 12,
+    "question": "What is the daily sugar limit?",
+    "expected_doc_id": "who-healthy-diet",
+    "expected_section": "Sugars",
+    "category": "nutrient_requirements"
+  },
+  {
+    "id": 13,
+    "question": "How much water should I drink per day?",
+    "expected_doc_id": "efsa-drv-2017",
+    "expected_section": "Water",
+    "category": "nutrient_requirements"
+  },
+  {
+    "id": 14,
+    "question": "What are the nutritional benefits of açaí berries?",
+    "expected_doc_id": "none",
+    "expected_section": "none",
+    "category": "out_of_corpus"
+  },
+  {
+    "id": 15,
+    "question": "What temperature should my refrigerator be?",
+    "expected_doc_id": "foodsafety-cold-storage",
+    "expected_section": "Refrigerator and Freezer Storage",
+    "category": "food_safety"
+  }
+]

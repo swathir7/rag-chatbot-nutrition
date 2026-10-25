@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>Nutrition Bot Cheat Sheet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Libre+Franklin:wght@700;800;900&display=swap">
+<style>
+/* Layout: one dense page, a three-column card grid; the request flow runs full width as a numbered chain. */
+:root {
+  --bg: #f4f6f2; --surface: #ffffff; --surface-2: #e9eee7; --fg: #142019; --muted: #56655b;
+  --line: #d6ddd4; --accent: #1b7647; --accent-soft: #dcefe2; --exit: #a85410; --exit-soft: #f7e7d6;
+  --f-display: "Libre Franklin", "Franklin Gothic Medium", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1310; --surface: #151c17; --surface-2: #1c2520; --fg: #e2eae4; --muted: #96a69b;
+    --line: #29342c; --accent: #5ccd8e; --accent-soft: #163322; --exit: #efa35d; --exit-soft: #3a2615; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1310; --surface: #151c17; --surface-2: #1c2520; --fg: #e2eae4; --muted: #96a69b;
+  --line: #29342c; --accent: #5ccd8e; --accent-soft: #163322; --exit: #efa35d; --exit-soft: #3a2615; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 14.5px/1.5 var(--f-body); -webkit-font-smoothing: antialiased; }
+.wrap {
+  max-width: 1120px; margin: 0 auto; padding-block: 28px 36px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 14px;
+}
+h1, h2 { font-family: var(--f-display); margin: 0; line-height: 1.15; text-wrap: balance; }
+h1 { font-size: 2rem; font-weight: 900; letter-spacing: -.02em; }
+h2 { font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+p { margin: 0; }
+code { font-family: var(--f-mono); font-size: .86em; background: var(--surface-2); padding: .05em .3em; border-radius: 4px; }
+ul, ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+
+header { display: grid; gap: 6px; }
+header p { color: var(--muted); max-width: 90ch; }
+header p b { color: var(--fg); font-weight: 600; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+
+/* Flow chain */
+.chain { display: flex; flex-wrap: wrap; gap: 6px; align-items: stretch; }
+.chain + .chain { margin-top: 10px; }
+.chain .lane { font-family: var(--f-mono); font-size: .72rem; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; width: 100%; }
+.step { display: grid; gap: 1px; padding: 7px 10px; border-radius: 7px; background: var(--surface-2); font-size: .86rem; line-height: 1.3; position: relative; }
+.step b { font-weight: 600; }
+.step span { color: var(--muted); font-size: .78rem; }
+.step i { font-style: normal; font-family: var(--f-mono); font-size: .72rem; color: var(--accent); }
+.step.x { background: var(--exit-soft); }
+.step.x span { color: var(--exit); }
+.arrow { align-self: center; color: var(--muted); font-size: .9rem; }
+
+/* Numbers */
+.nums { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 3px 12px; font-size: .88rem; font-variant-numeric: tabular-nums; }
+.nums dt { color: var(--muted); }
+.nums dd { margin: 0; font-weight: 600; }
+
+/* Terms and lists */
+.terms li, .why li { font-size: .88rem; }
+.terms b, .why b { font-weight: 600; }
+.terms span, .why span { color: var(--muted); }
+.weak li { font-size: .88rem; display: grid; gap: 1px; }
+.weak b { font-weight: 600; }
+.weak span { color: var(--muted); }
+.weak span::before { content: "Fix: "; color: var(--accent); font-weight: 600; }
+
+.qa li { font-size: .88rem; display: grid; gap: 1px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.qa li:last-child { border-bottom: 0; padding-bottom: 0; }
+.qa b { font-weight: 600; }
+.qa span { color: var(--muted); }
+.span2 { grid-column: span 2; }
+.qa.cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; }
+.qa.cols li:nth-last-child(2) { border-bottom: 0; padding-bottom: 0; }
+
+footer { color: var(--muted); font-size: .8rem; }
+footer a { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .span2 { grid-column: 1 / -1; }
+}
+@media (max-width: 620px) {
+  .grid, .qa.cols { grid-template-columns: minmax(0, 1fr); }
+  .qa.cols li:nth-last-child(2) { border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  .arrow { display: none; }
+  .chain { display: grid; }
+  h1 { font-size: 1.6rem; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Nutrition Bot Cheat Sheet</h1>
+    <p><b>In one line:</b> a RAG chatbot that answers nutrition and food-safety questions using only 22 official guideline documents, and puts a real citation on every claim.</p>
+  </header>
+
+  <section class="card">
+    <h2>How it works</h2>
+    <div class="chain">
+      <div class="lane">Build time · Python, run once</div>
+      <div class="step"><b>Parse</b><span>PDF → Markdown</span></div><span class="arrow">→</span>
+      <div class="step"><b>Chunk</b><span>by heading, 800 tokens</span></div><span class="arrow">→</span>
+      <div class="step"><b>Embed</b><span>Jina v2 small</span></div><span class="arrow">→</span>
+      <div class="step"><b>Store</b><span>563 chunks in SQLite</span></div>
+    </div>
+    <div class="chain">
+      <div class="lane">Request time · Next.js on Render</div>
+      <div class="step"><i>1</i><b>Scope guard</b><span>regex</span></div><span class="arrow">→</span>
+      <div class="step"><i>2</i><b>Embed question</b><span>local, 512 numbers</span></div><span class="arrow">→</span>
+      <div class="step"><i>3</i><b>Rank chunks</b><span>keep top 3</span></div><span class="arrow">→</span>
+      <div class="step"><i>4</i><b>Gate</b><span>score ≥ 0.75?</span></div><span class="arrow">→</span>
+      <div class="step"><i>5</i><b>LLM</b><span>Groq → JSON</span></div><span class="arrow">→</span>
+      <div class="step"><i>6</i><b>Check &amp; cite</b><span>Zod + fix sources</span></div><span class="arrow">→</span>
+      <div class="step"><i>7</i><b>Save &amp; reply</b><span>SQLite</span></div>
+    </div>
+    <div class="chain">
+      <div class="lane">Two early exits (no LLM call)</div>
+      <div class="step x"><b>At step 1</b><span>medical, calorie or weight request → fixed decline</span></div>
+      <div class="step x"><b>At step 4</b><span>nothing scores ≥ 0.75 → "documents don't cover this"</span></div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Numbers to remember</h2>
+      <dl class="nums">
+        <dt>Documents</dt><dd>22</dd>
+        <dt>Chunks</dt><dd>563</dd>
+        <dt>Chunk size</dt><dd>800 tokens</dd>
+        <dt>Overlap</dt><dd>100 tokens</dd>
+        <dt>Embedding</dt><dd>Jina v2 small, 512-d</dd>
+        <dt>Index</dt><dd>flat cosine in SQLite</dd>
+        <dt>Top-k</dt><dd>3</dd>
+        <dt>Threshold</dt><dd>0.75</dd>
+        <dt>LLM</dt><dd>gpt-oss-120b on Groq</dd>
+        <dt>Temperature</dt><dd>0.2</dd>
+        <dt>Retrieval</dt><dd>≈ 24 ms</dd>
+        <dt>Hosting</dt><dd>Docker, Render free, 512 MB</dd>
+      </dl>
+    </section>
+
+    <section class="card">
+      <h2>Terms in plain English</h2>
+      <ul class="terms">
+        <li><b>RAG</b> <span>Find relevant text first, then let the LLM answer from it.</span></li>
+        <li><b>Chunk</b> <span>A small piece of a document (one section, up to 800 tokens).</span></li>
+        <li><b>Embedding</b> <span>A list of 512 numbers that captures what a text means.</span></li>
+        <li><b>Cosine similarity</b> <span>How close two embeddings are, from 0 to 1.</span></li>
+        <li><b>Top-k</b> <span>How many best-matching chunks to keep (3).</span></li>
+        <li><b>Threshold</b> <span>Minimum score a chunk needs to be used (0.75).</span></li>
+        <li><b>Zod</b> <span>Checks the LLM's JSON has the right shape.</span></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Why these choices</h2>
+      <ul class="why">
+        <li><b>RAG:</b> <span>Milestone 1 made up sources and numbers.</span></li>
+        <li><b>Split by heading:</b> <span>every chunk keeps its section name for citations.</span></li>
+        <li><b>Local embeddings:</b> <span>free, no API key, fits in 512 MB.</span></li>
+        <li><b>SQLite, not Chroma:</b> <span>Chroma crashed on Render's CPUs; 563 vectors is small enough to scan.</span></li>
+        <li><b>Regex guard:</b> <span>medical refusals are enforced in code, not by the prompt.</span></li>
+        <li><b>Server fixes sources:</b> <span>the LLM can't invent a publisher, year or link.</span></li>
+        <li><b>Groq:</b> <span>fast, free tier, same stack as Milestone 1.</span></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Weak spots to admit</h2>
+      <ul class="weak">
+        <li><b>Gate is loose: off-topic questions score 0.77</b><span>add a reranker</span></li>
+        <li><b>Refusals are detected by matching words</b><span>add a status field to the JSON</span></li>
+        <li><b>Eatwell parsed to 168 characters; Australian chunks lost their headings</b><span>OCR and better heading detection</span></li>
+      </ul>
+    </section>
+
+    <section class="card span2">
+      <h2>Quick interview answers</h2>
+      <ul class="qa cols">
+        <li><b>Why RAG?</b><span>So answers come from real documents I can cite, not the model's memory.</span></li>
+        <li><b>How did you chunk?</b><span>By heading, max 800 tokens, 100 overlap. Long sections get force-split.</span></li>
+        <li><b>Two kinds of refusal?</b><span>Out of scope: blocked by regex. Not in documents: blocked by the gate or the prompt.</span></li>
+        <li><b>How do you stop fake citations?</b><span>The server overwrites each source with the retrieved chunk's real metadata.</span></li>
+        <li><b>Bad JSON from the LLM?</b><span>Zod check, one retry at lower temperature, then a safe fallback answer.</span></li>
+        <li><b>Results?</b><span>71.4% retrieval hit rate (10/14). Medical questions blocked before any search.</span></li>
+        <li><b>How to scale?</b><span>Vector index (pgvector), keyword + vector search, a reranker, streaming.</span></li>
+        <li><b>Chat memory?</b><span>Session id in the browser; the last 4 messages are sent with each question.</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>Full version with diagrams and detail: <a href="Project%20Architecture%20Detailed%20Artifact.html">Project Architecture Detailed Artifact</a></footer>
+</div>
+
+</html>
